@@ -21,7 +21,7 @@ export const actions = {
 			throw error(418, 'Not a Masto instance or not responding to my API request');
 		} else {
 			const json = await emoji.json();
-			return { json };
+			return { json, instance };
 		}
 	}
 };

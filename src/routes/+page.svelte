@@ -10,8 +10,8 @@
 </script>
 
 <main class="responsive max">
-	<h3>Mastodon Emoji Viewer</h3>
 	{#if form?.json}
+		<h3>Emoji on {form.instance}</h3>
 		<div class="space"></div>
 		<a href="#raw">
 			<button on:click={toggleRaw}>Show/Hide Raw</button>
@@ -68,7 +68,12 @@
 			<pre id="raw">{JSON.stringify(form.json, null, 2)}</pre>
 		{/if}
 	{:else}
+		<h3>Mastodon Emoji Viewer</h3>
 		<p>Enter an instance URL and we'll try to find all of it's custom emoji.</p>
+		<div class="round padding border error">
+			<p>Viewed emoji could be animated.</p>
+		</div>
+		<div class="space"></div>
 		<form method="POST">
 			<div class="field label prefix suffix border round">
 				<i>link</i>
@@ -78,4 +83,12 @@
 			<button>View</button>
 		</form>
 	{/if}
+	<footer class="absolute bottom max">
+		<p>
+			Made with ❤️ | Follow me on <a href="https://wetdry.world/@kat" rel="me" target="_blank"
+				>Mastodon</a
+			>. Open source on
+			<a href="https://github.com/kattschan/mastoemojiviewer" target="_blank">GitHub</a>.
+		</p>
+	</footer>
 </main>
